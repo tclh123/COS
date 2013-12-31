@@ -39,6 +39,18 @@ System），企业员工可通过企业内联网使用该系统。
     - 管理菜单(admin)
     - 送餐员权限(delivery)
 
+### Model
+
+#### User Module
+
+    略
+
+#### Meal Module
+
+* 菜品库
+
+* TODO!
+
 ### 顾客订餐过程
 
 1. 顾客请求查看菜单；
