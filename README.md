@@ -63,7 +63,7 @@ System），企业员工可通过企业内联网使用该系统。
 
 #### Purchase(order) Module
 
-* 购物车(chart)
+* 购物车(cart)
 
     - 顾客点菜，加入购物车
 

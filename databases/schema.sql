@@ -16,8 +16,8 @@ drop table if exists permission;
 
 drop table if exists meal;
 drop table if exists menu;
-drop table if exists user_chart;
 
+drop table if exists user_cart;
 drop table if exists order;
 drop table if exists order_status;
 drop table if exists order_meal;
@@ -118,9 +118,9 @@ CREATE TABLE `menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table "user_chart"
+-- Table structure for table "user_cart"
 --
-CREATE TABLE `user_chart` (
+CREATE TABLE `user_cart` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) unsigned NOT NULL,
   `meal_id` int(11) unsigned NOT NULL,
