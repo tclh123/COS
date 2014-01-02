@@ -2,7 +2,7 @@
 
 from flask import Flask
 
-from cos.ext import mako, init_db
+from cos.ext import mako, db
 
 import cos.views.index
 import cos.views.menu
@@ -15,6 +15,7 @@ def create_app():
 
     # initialize extensions
     mako.init_app(app)
+    db.init_app(app)
 
     # mount blueprints
     app.register_blueprint(cos.views.index.bp)
@@ -25,4 +26,3 @@ def create_app():
     return app
 
 app = create_app()
-db = init_db(app)
