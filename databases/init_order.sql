@@ -7,5 +7,6 @@ table order_meal
 table payment_kind
 
  */
+use `cosdb`;
 
 insert into user_cart values (NULL, 1, 1, NULL);
