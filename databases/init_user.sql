@@ -9,8 +9,8 @@ table permission
 
 insert into open_id_kind values (NULL, 'company_staff_id', now());
 
-insert into permission values (NULL, 1, '餐厅系统基本权限(basic)');
-insert into permission values (NULL, 2, '管理菜单权限(admin)');
+insert into permission values (NULL, 1, '餐厅员工基本权限(basic)');
+insert into permission values (NULL, 2, '管理员权限(admin)');
 insert into permission values (NULL, 4, '送餐员权限(delivery)');
 
 insert into staff values (NULL, 7);
