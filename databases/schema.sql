@@ -18,7 +18,7 @@ drop table if exists meal;
 drop table if exists menu;
 
 drop table if exists user_cart;
-drop table if exists order;
+drop table if exists `order`;
 drop table if exists order_status;
 drop table if exists order_meal;
 drop table if exists payment_kind;
@@ -31,7 +31,7 @@ drop table if exists inbox;
 CREATE TABLE `open_id_kind` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `kind_name` varchar(100) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_name` (`kind_name`)
@@ -48,7 +48,7 @@ CREATE TABLE `user` (
   `email` varchar(64) NOT NULL,
   `type` varchar(16) NOT NULL,
   `target_id` int(11) unsigned DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_open_id` (`open_id_kind`, `open_id`)
@@ -82,7 +82,7 @@ CREATE TABLE `permission` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `value` bigint(20) unsigned NOT NULL,
   `desc` varchar(200) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_value` (`value`)
@@ -96,9 +96,9 @@ CREATE TABLE `meal` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
   `price` int(11) unsigned NOT NULL DEFAULT '0',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `desc` varchar(1024) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -111,7 +111,7 @@ CREATE TABLE `menu` (
   `sale_price` int(11) unsigned NOT NULL,
   `amount` int(11) unsigned NOT NULL DEFAULT '0',
   `buying_amount` int(11) unsigned NOT NULL DEFAULT '0',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_meal_id` (`meal_id`)
@@ -140,7 +140,7 @@ CREATE TABLE `order` (
   `payment_kind` int(11) unsigned DEFAULT NULL,
   `is_paid` tinyint(1) DEFAULT '0',
   `deliveryman_id` int(11) unsigned DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -151,7 +151,7 @@ CREATE TABLE `order` (
 CREATE TABLE `order_status` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `desc` varchar(200) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -174,7 +174,7 @@ CREATE TABLE `order_meal` (
 CREATE TABLE `payment_kind` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `desc` varchar(200) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
