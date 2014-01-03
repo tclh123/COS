@@ -1,3 +1,3 @@
 - init\_\*.sql
 - flask + SQLAlchemy
-- FE: Angluar
+- ~~FE: Angluar~~ 已经用了plim了，先不搞前端吧。。

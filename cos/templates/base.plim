@@ -1,0 +1,72 @@
+doctype html
+html
+  head
+    meta charset="UTF-8"
+    meta name="description" content="COS, Cafeteria Ordering System"
+    meta name="author" content="Harry Lee"
+
+    title
+      -py
+        _t = capture(self.title).strip()
+      -if _t
+        ${_t} · COS - Cafeteria Ordering System
+      -else
+        COS - Cafeteria Ordering System
+
+    link href="${url_for('static', filename='css/lib/bootstrap.css')}" rel="stylesheet"
+    link href="${url_for('static', filename='css/main.css')}" rel="stylesheet"
+    ${self.head_script()}
+    -block extra_head
+
+  body
+    #header
+      #user-nav.navbar.navbar-default.navbar-fixed-top
+        .container
+          .navbar-header
+            a.navbar-brand href="/"
+              span COS
+          .navbar-collapse.collapse
+            ul.nav.navbar-nav
+              li
+                a href="/" Home
+              li
+                a href="/" Home
+              li
+                a href="/" Home
+            ul.nav.navbar-nav.navbar-right
+              ${self.user_links()}
+    #content.container
+        ${self.body()}
+    #footer.span12
+      .container
+        p.text-muted.credit
+          © tclh123.com 2014
+    -block extra_js
+
+-def title()
+-def head_script()
+    script type="text/javascript" src="${url_for('static', filename='js/lib/require.js')}"
+    script type="text/javascript" src="${url_for('static', filename='js/mod/common.js')}"
+    script type="text/javascript" src="${url_for('static', filename='js/app/main.js')}"
+
+-def user_links()
+  -py
+    user = True
+  -if user
+    li.dropdown
+      a.dropdown-toggle href="#" data-toggle="dropdown"
+        span Harry
+        b.caret
+      ul.dropdown-menu
+        li
+          a href="#"
+            i.glyphicon.glyphicon-user
+            Profile
+        li.divider
+        li
+          a href="#"
+            i.glyphicon.glyphicon-volume-off
+            Logout
+  -else
+    li
+      a href="/" Login

@@ -1,1 +1,6 @@
+-inherit /base.plim
+
+-def title()
+    Index
+
 p hello COS!
