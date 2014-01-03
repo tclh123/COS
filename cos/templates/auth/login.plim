@@ -1,0 +1,26 @@
+-inherit /auth/base.plim
+
+-if errs
+    .alert.alert-danger
+        ${errs}
+
+form#login.form-horizontal method="POST"
+    .form-group
+        label.col-sm-2.control-label Open Id Kind
+        .col-sm-4
+            select.form-control name="open_id_kind"
+                option value="1" 公司员工号
+    .form-group
+        label.col-sm-2.control-label Open Id
+        .col-sm-4
+            input.form-control type="text" name="open_id" placeholder="input your open_id" autocomplete="off"
+
+    .form-group
+        .col-sm-offset-2.col-sm-10
+            .checkbox
+                input type="checkbox"
+                Remember me
+
+    .form-group
+        .col-sm-offset-2.col-sm-10
+            button.btn.btn-primary type="submit" Sign in

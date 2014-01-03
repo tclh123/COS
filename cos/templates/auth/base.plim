@@ -1,6 +1,3 @@
--py!
-    from flask.ext.login import current_user
-
 doctype html
 html
   head
@@ -28,16 +25,6 @@ html
           .navbar-header
             a.navbar-brand href="/"
               span COS
-          .navbar-collapse.collapse
-            ul.nav.navbar-nav
-              li
-                a href="/" Home
-              li
-                a href="/" Home
-              li
-                a href="/" Home
-            ul.nav.navbar-nav.navbar-right
-              ${self.user_links()}
     #content.container
         ${self.body()}
     #footer.span12
@@ -53,10 +40,12 @@ html
     script type="text/javascript" src="${url_for('static', filename='js/app/main.js')}"
 
 -def user_links()
-  -if current_user.is_authenticated()
+  -py
+    user = True
+  -if user
     li.dropdown
       a.dropdown-toggle href="#" data-toggle="dropdown"
-        span ${current_user.name}
+        span Harry
         b.caret
       ul.dropdown-menu
         li
@@ -65,9 +54,9 @@ html
             Profile
         li.divider
         li
-          a href="${url_for('auth.logout')}"
+          a href="#"
             i.glyphicon.glyphicon-volume-off
             Logout
   -else
     li
-      a href="${url_for('auth.login')}" Login
+      a href="/" Login
