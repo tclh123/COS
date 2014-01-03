@@ -139,7 +139,7 @@ CREATE TABLE `order` (
   `delivery_time` datetime DEFAULT NULL,
   `delivery_spot` varchar(1024) DEFAULT NULL,
   `payment_kind` int(11) unsigned DEFAULT NULL,
-  `is_paid` tinyint(1) DEFAULT '0',
+  `is_paid` tinyint(1) NOT NULL DEFAULT '0',
   `deliveryman_id` int(11) unsigned DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
