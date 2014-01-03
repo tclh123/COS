@@ -59,7 +59,7 @@ CREATE TABLE `user` (
 --
 CREATE TABLE `staff` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `permissions` int(11) NOT NULL,
+  `permissions` bigint(20) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
