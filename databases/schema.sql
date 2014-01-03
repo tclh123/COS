@@ -78,15 +78,15 @@ CREATE TABLE `deliveryman` (
 --
 -- Table structure for table "permission"
 --
-CREATE TABLE `permission` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `value` bigint(20) unsigned NOT NULL,
-  `desc` varchar(200) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `uk_value` (`value`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+create table `permission` (
+  `id` int(11) unsigned not null auto_increment,
+  `value` bigint(20) unsigned not null,
+  `desc` varchar(200) not null,
+  `created_at` timestamp not null default '0000-00-00 00:00:00',
+  `updated_at` timestamp not null default current_timestamp on update current_timestamp,
+  primary key (`id`),
+  unique key `uk_value` (`value`)
+) engine=innodb default charset=utf8;
 
 
 --
@@ -124,6 +124,7 @@ CREATE TABLE `user_cart` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) unsigned NOT NULL,
   `meal_id` int(11) unsigned NOT NULL,
+  `amount` int(11) unsigned NOT NULL DEFAULT '1',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
