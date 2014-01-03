@@ -1,6 +1,9 @@
 -py!
     from flask.ext.login import current_user
 
+-namespace name="navbar" /widgets/navbar.plim
+
+
 doctype html
 html
   head
@@ -29,13 +32,10 @@ html
             a.navbar-brand href="/"
               span COS
           .navbar-collapse.collapse
-            ul.nav.navbar-nav
-              li
-                a href="/" Home
-              li
-                a href="/" Home
-              li
-                a href="/" Home
+            -py
+              is_login = current_user.is_authenticated()
+              perms = None if not is_login else current_user.permissions
+            ${navbar.navbar(is_login, perms)}
             ul.nav.navbar-nav.navbar-right
               ${self.user_links()}
     #content.container
