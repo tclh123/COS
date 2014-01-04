@@ -8,6 +8,7 @@ from cos.ext import mako, db, login_manager
 import cos.views.auth
 import cos.views.index
 import cos.views.menu
+import cos.views.order
 
 
 def create_app():
@@ -27,6 +28,7 @@ def create_app():
     app.register_blueprint(cos.views.index.bp)
     app.register_blueprint(cos.views.menu.bp)
     app.register_blueprint(cos.views.auth.bp)
+    app.register_blueprint(cos.views.order.bp)
 
     return app
 

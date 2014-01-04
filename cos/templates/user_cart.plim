@@ -1,0 +1,28 @@
+-inherit /base.plim
+
+-namespace name="meal_render" /widgets/meal.plim
+
+
+-def title()
+    User Cart
+
+-if carts
+    ul.media-list
+    -for cart in carts
+        -py
+            menu = cart.menu
+        li.media
+            -py
+                if menu.is_discount:
+                    sale_price = menu.display_price
+                else:
+                    sale_price = None
+            ${meal_render.display_meal(menu.meal, sale_price)}
+            总量: ${cart.amount}
+            .row
+                a.btn.btn-default href="#" 移出购入车
+    .row
+        .col-sm-6
+            a.btn.btn-default.pull-right href="#" 结账
+-else
+    购物车为空

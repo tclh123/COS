@@ -7,7 +7,7 @@
     Menu
 
 ul.media-list
--for menu in menus:
+-for menu in menus
     li.media
         -py
             if menu.is_discount:
@@ -18,4 +18,4 @@ ul.media-list
         总量: ${menu.amount} 正在购买: ${menu.buying_amount}
         .row
             a.btn.btn-default href="#" 加入购入车
-            a.btn.btn-default href="#" style="margin-left: 5px" 购买
+            a.btn.btn-default href="${url_for('menu.buy', meal_id=menu.meal_id, menu_id=menu.id)}" style="margin-left: 5px" 购买

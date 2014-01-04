@@ -124,9 +124,11 @@ CREATE TABLE `user_cart` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) unsigned NOT NULL,
   `meal_id` int(11) unsigned NOT NULL,
+  `menu_id` int(11) unsigned NOT NULL,  -- 当 menu_id 指向的不在了，则表示已下架
   `amount` int(11) unsigned NOT NULL DEFAULT '1',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_user_id_menu_id` (`user_id`, `menu_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
