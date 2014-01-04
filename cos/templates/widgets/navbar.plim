@@ -12,7 +12,7 @@
         ]
         user = [
             (u'查看购物车', '/order/user_cart'),
-            (u'查看订单', '/'),
+            (u'查看订单', '/order'),
             (u'预约订餐', '/'),
         ]
         staff_basic = [

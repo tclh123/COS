@@ -21,6 +21,7 @@ class UserCart(db.Model):
         return ('<UserCart(id=%r, user_id=%r, meal_id=%r, amount=%r)>'
                 % (self.id, self.user_id, self.meal_id, self.amount))
 
+    # FIXME: menu.buying_amount
     def commit(self):
         cart = UserCart.query.filter_by(user_id=self.user_id,
                                         menu_id=self.menu_id).first()

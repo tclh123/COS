@@ -1,0 +1,43 @@
+-py!
+    from cos.models.const import (ORDER_STATUS_SUBMIT,
+                                  ORDER_STATUS_PAY,
+                                  ORDER_STATUS_WAIT,
+                                  ORDER_STATUS_DELIVERY,
+                                  ORDER_STATUS_OVER)
+
+-inherit /base.plim
+
+-namespace name="meal_render" /widgets/meal.plim
+
+
+-def title()
+    User Order
+
+-if orders
+    h4 共 ${len(orders)} 个订单
+    -for order in orders
+        -py
+            order_menus = order.menus
+        -if not loop.first
+            hr
+        .row
+            .col-sm-5
+                span 订单状态: ${order.status.desc}
+                span.pull-right
+                    a href="${url_for('order.order_form', order_id=order.id)}" [订单详情]
+        .row
+            ul.media-list
+            -for menu, amount in order_menus
+                li.media
+                    -py
+                        if menu.is_discount:
+                            sale_price = menu.display_price
+                        else:
+                            sale_price = None
+                    ${meal_render.display_meal(menu.meal, sale_price)}
+                    总量: ${amount}
+        .row
+            .col-sm-5
+                span.pull-right 总价: ${order.display_price_sum}
+-else
+    订单列表为空

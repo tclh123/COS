@@ -5,4 +5,4 @@ from flask.blueprints import Blueprint
 
 bp = Blueprint("order", __name__, url_prefix="/order")
 
-from . import (user_cart, )
+from . import (user_cart, order)

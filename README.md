@@ -12,7 +12,7 @@ System），企业员工可通过企业内联网使用该系统。
 * 员工(company open id):
 
     - 查看菜单
-    - 查看今日特价。
+    - ~~查看今日特价。~~在菜单中显示
 
 * 顾客(user): register with open id //注册到系统的员工。
 

@@ -1,0 +1,35 @@
+-py!
+    from cos.models.const import PAYMENT
+-inherit /base.plim
+
+
+-def title()
+    Order Form
+
+h5
+    尊敬的 ${user.name}，请为您的 订单[${order_id}] 填写以下信息。
+
+br
+
+form#login.form-horizontal method="POST"
+
+    .form-group
+        label.col-sm-2.control-label 送餐时间
+        .col-sm-4
+            input.form-control type="text" name="delivery_time" placeholder="2014-1-1" autocomplete="off"
+
+    .form-group
+        label.col-sm-2.control-label 送餐地点
+        .col-sm-4
+            input.form-control type="text" name="delivery_spot" placeholder="input delivery spot" autocomplete="off"
+
+    .form-group
+        label.col-sm-2.control-label 付款方式
+        .col-sm-4
+            select.form-control name="open_id_kind"
+                -for k, v in PAYMENT.items()
+                    option value="${v}" ${k}
+
+    .form-group
+        .col-sm-offset-2.col-sm-10
+            button.btn.btn-primary type="submit" 确认

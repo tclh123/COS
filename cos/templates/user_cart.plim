@@ -23,6 +23,6 @@
                 a.btn.btn-default href="#" 移出购入车
     .row
         .col-sm-6
-            a.btn.btn-default.pull-right href="#" 结账
+            a.btn.btn-default.pull-right href="${url_for('order.checkout')}" 结账
 -else
     购物车为空
