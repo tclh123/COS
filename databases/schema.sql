@@ -166,9 +166,10 @@ CREATE TABLE `order_meal` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `order_id` int(11) unsigned NOT NULL,
   `meal_id` int(11) unsigned NOT NULL,
+  `menu_id` int(11) unsigned NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `uk_order_id_meal_id` (`order_id`, `meal_id`)
+  UNIQUE KEY `uk_order_id_menu_id` (`order_id`, `menu_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
