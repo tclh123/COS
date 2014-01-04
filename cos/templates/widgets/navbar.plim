@@ -7,22 +7,22 @@
 -def navbar(is_login=False, perms=None)
     -py
         anonymous = [
-            ('Home', ''),
-            (u'今日菜单', ''),
-            (u'今日特价', ''),
+            ('Home', '/'),
+            (u'今日菜单', '/menu'),
+            (u'今日特价', '/'),
         ]
         user = [
-            (u'查看订单', ''),
-            (u'预约订餐', ''),
+            (u'查看订单', '/'),
+            (u'预约订餐', '/'),
         ]
         staff_basic = [
-            (u'菜品库管理', ''),
+            (u'菜品库管理', '/'),
         ]
         staff_delivery = [
-            (u'查看待送订单', ''),
+            (u'查看待送订单', '/'),
         ]
         staff_admin = [
-            (u'菜单管理', ''),
+            (u'菜单管理', '/'),
         ]
         if not is_login:
             tabs = anonymous
@@ -37,8 +37,6 @@
             if perms & PERM_ADMIN:
                 tabs += staff_admin
     ul.nav.navbar-nav
-        -for name, sub in tabs:
-            -py
-                link = '/' + sub
+        -for name, link in tabs:
             li
                 a href="${link}" ${name}
