@@ -1,9 +1,21 @@
 -inherit /base.plim
 
+-namespace name="meal_render" /widgets/meal.plim
+
+
 -def title()
     Menu
 
-ul
--for m in menus:
-    li
-        span ${m|h}
+ul.media-list
+-for menu in menus:
+    li.media
+        -py
+            if menu.is_discount:
+                sale_price = menu.display_price
+            else:
+                sale_price = None
+        ${meal_render.display_meal(menu.meal, sale_price)}
+        总量: ${menu.amount} 正在购买: ${menu.buying_amount}
+        .row
+            a.btn.btn-default href="#" 加入购入车
+            a.btn.btn-default href="#" style="margin-left: 5px" 购买
