@@ -167,6 +167,7 @@ CREATE TABLE `order_meal` (
   `order_id` int(11) unsigned NOT NULL,
   `meal_id` int(11) unsigned NOT NULL,
   `menu_id` int(11) unsigned NOT NULL,
+  `amount` int(11) unsigned NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_order_id_menu_id` (`order_id`, `menu_id`)
